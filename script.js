@@ -66,3 +66,16 @@ function endQuiz() {
     scoreElement.classList.remove("hidden");
     scoreValueElement.textContent = score;
 }
+
+
+nextButton.addEventListener("click", () => {
+    currentQuestionIndex++;
+    if (currentQuestionIndex < questions.length) {
+        showQuestion();
+    } else {
+        endQuiz();
+    }
+});
+
+// Start the quiz
+showQuestion();
