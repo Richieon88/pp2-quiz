@@ -58,3 +58,11 @@ function selectOption(event) {
         endQuiz();
     }
 }
+
+function endQuiz() {
+    questionElement.textContent = "Quiz Completed!";
+    optionsContainer.innerHTML = "";
+    nextButton.classList.add("hidden");
+    scoreElement.classList.remove("hidden");
+    scoreValueElement.textContent = score;
+}
