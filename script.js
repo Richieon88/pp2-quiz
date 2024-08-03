@@ -37,6 +37,9 @@ function showQuestion() {
         button.addEventListener("click", selectOption);
         optionsContainer.appendChild(button);
     });
+
+    // Hide the Next button initially
+    nextButton.classList.add("hidden");
 }
 
 function selectOption(event) {
@@ -65,17 +68,20 @@ function endQuiz() {
     nextButton.classList.add("hidden");
     scoreElement.classList.remove("hidden");
     scoreValueElement.textContent = score;
+
+    // Show the Restart button
+    const restartButton = document.createElement("button");
+    restartButton.textContent = "Restart Quiz";
+    restartButton.addEventListener("click", restartQuiz);
+    optionsContainer.appendChild(restartButton);
 }
 
-
-nextButton.addEventListener("click", () => {
-    currentQuestionIndex++;
-    if (currentQuestionIndex < questions.length) {
-        showQuestion();
-    } else {
-        endQuiz();
-    }
-});
+function restartQuiz() {
+    currentQuestionIndex = 0;
+    score = 0;
+    scoreElement.classList.add("hidden");
+    showQuestion();
+}
 
 // Start the quiz
 showQuestion();
