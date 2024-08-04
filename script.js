@@ -19,6 +19,9 @@ const questions = [
 let currentQuestionIndex = 0;
 let score = 0;
 
+const startScreen = document.getElementById("start-screen");
+const startButton = document.getElementById("start-button");
+const quizContainer = document.getElementById("quiz-container");
 const questionElement = document.getElementById("question");
 const optionsContainer = document.getElementById("options-container");
 const nextButton = document.getElementById("next-button");
@@ -83,5 +86,10 @@ function restartQuiz() {
     showQuestion();
 }
 
-// Start the quiz
-showQuestion();
+function startQuiz() {
+    startScreen.classList.add("hidden");
+    quizContainer.classList.remove("hidden");
+    showQuestion();
+}
+
+startButton.addEventListener("click", startQuiz);
