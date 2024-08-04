@@ -216,7 +216,10 @@ function showQuestion() {
     questionElement.textContent = currentQuestion.question;
     optionsContainer.innerHTML = "";
 
-    currentQuestion.options.forEach(option => {
+    // Shuffle the options to randomize their order
+    const shuffledOptions = shuffleArray([...currentQuestion.options]);
+
+    shuffledOptions.forEach(option => {
         const button = document.createElement("button");
         button.textContent = option;
         button.classList.add("option");
@@ -226,6 +229,15 @@ function showQuestion() {
 
     // Hide the Next button initially
     nextButton.classList.add("hidden");
+}
+
+// Fisher-Yates shuffle algorithm
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
 }
 
 function getRandomQuestions(num) {
