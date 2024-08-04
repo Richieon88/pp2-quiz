@@ -211,12 +211,10 @@ const scoreElement = document.getElementById("score");
 const scoreValueElement = document.getElementById("score-value");
 
 function showQuestion() {
-    console.log("Showing question:", currentQuestionIndex);
     const currentQuestion = currentQuestions[currentQuestionIndex];
     questionElement.textContent = currentQuestion.question;
     optionsContainer.innerHTML = "";
 
-    // Shuffle the options to randomize their order
     const shuffledOptions = shuffleArray([...currentQuestion.options]);
 
     shuffledOptions.forEach(option => {
@@ -237,7 +235,6 @@ function shuffleArray(array) {
 }
 
 function getRandomQuestions(num) {
-    console.log("Getting random questions");
     const shuffled = questions.sort(() => 0.5 - Math.random());
     return shuffled.slice(0, num);
 }
@@ -245,19 +242,17 @@ function getRandomQuestions(num) {
 function selectOption(event) {
     const selectedOption = event.target;
     const correctAnswer = currentQuestions[currentQuestionIndex].answer;
-
-    // Disable all buttons to prevent multiple selections
     document.querySelectorAll('.option').forEach(button => {
         button.disabled = true;
         if (button.textContent === correctAnswer) {
-            button.style.backgroundColor = 'green'; // Highlight correct answer
+            button.style.backgroundColor = 'green';
         }
     });
 
     if (selectedOption.textContent === correctAnswer) {
         score++;
     } else {
-        selectedOption.style.backgroundColor = 'red'; // Highlight incorrect selection
+        selectedOption.style.backgroundColor = 'red';
     }
 
     // Update the score display
@@ -275,7 +270,6 @@ function selectOption(event) {
 }
 
 function endQuiz() {
-    console.log("Quiz completed");
     questionElement.textContent = "Quiz Completed!";
     optionsContainer.innerHTML = "";
 
@@ -287,21 +281,19 @@ function endQuiz() {
 }
 
 function restartQuiz() {
-    console.log("Restarting quiz");
-    currentQuestions = getRandomQuestions(20); // Get a new set of random questions
+    currentQuestions = getRandomQuestions(20);
     currentQuestionIndex = 0;
     score = 0;
-    scoreElement.style.display = "block"; // Ensure score is visible
-    scoreValueElement.textContent = score; // Reset score display
+    scoreElement.style.display = "block";
+    scoreValueElement.textContent = score;
     showQuestion();
 }
 
 function startQuiz() {
-    console.log("Starting quiz");
     startScreen.style.display = "none";
     quizContainer.style.display = "block";
-    scoreElement.style.display = "block"; // Show score at the start
-    scoreValueElement.textContent = score; // Initialize score display
+    scoreElement.style.display = "block";
+    scoreValueElement.textContent = score;
     showQuestion();
 }
 
