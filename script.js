@@ -197,7 +197,8 @@ const questions = [
     { question: "What is the capital of Zimbabwe?", options: ["Harare", "Lusaka", "Gaborone", "Maputo"], answer: "Harare" }
 ];
 
-
+// Select 20 random questions
+let currentQuestions = getRandomQuestions(20);
 let currentQuestionIndex = 0;
 let score = 0;
 
@@ -211,7 +212,7 @@ const scoreElement = document.getElementById("score");
 const scoreValueElement = document.getElementById("score-value");
 
 function showQuestion() {
-    const currentQuestion = questions[currentQuestionIndex];
+    const currentQuestion = currentQuestions[currentQuestionIndex];
     questionElement.textContent = currentQuestion.question;
     optionsContainer.innerHTML = "";
 
@@ -227,9 +228,14 @@ function showQuestion() {
     nextButton.classList.add("hidden");
 }
 
+function getRandomQuestions(num) {
+    const shuffled = questions.sort(() => 0.5 - Math.random());
+    return shuffled.slice(0, num);
+}
+
 function selectOption(event) {
     const selectedOption = event.target.textContent;
-    const correctAnswer = questions[currentQuestionIndex].answer;
+    const correctAnswer = currentQuestions[currentQuestionIndex].answer;
 
     if (selectedOption === correctAnswer) {
         score++;
@@ -240,7 +246,7 @@ function selectOption(event) {
 
     currentQuestionIndex++;
 
-    if (currentQuestionIndex < questions.length) {
+    if (currentQuestionIndex < currentQuestions.length) {
         showQuestion();
     } else {
         endQuiz();
@@ -262,6 +268,7 @@ function endQuiz() {
 }
 
 function restartQuiz() {
+    currentQuestions = getRandomQuestions(20); // Get a new set of random questions
     currentQuestionIndex = 0;
     score = 0;
     scoreElement.classList.add("hidden");
