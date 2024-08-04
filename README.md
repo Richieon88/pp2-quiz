@@ -1,131 +1,123 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Capital Cities Quiz
 
-Welcome Richard "O'Neill",
+[Capital Cities Quiz](https://your-username.github.io/capital-cities-quiz/) is an interactive quiz game where users test their knowledge of world capitals. Players answer questions about the capital cities of different countries, and their scores are tracked throughout the game. This educational game is suitable for anyone interested in geography and aims to provide a fun way to learn.
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+![Responsive Mockup](assets/images/responsive.png)
 
-You can safely delete this README.md file or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **June 18, 2024**
+## Technologies Used
 
-## Gitpod Reminders
+- HTML
+- CSS
+- JavaScript
+- Google Fonts
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+## Features
 
-`python3 -m http.server`
+### Existing Features
 
-A blue button should appear to click: _Make Public_,
+- **Title and Introduction**
 
-Another blue button should appear to click: _Open Browser_.
+  - The title of the quiz is prominently displayed on the start screen, welcoming users to the game.
+  - The introduction provides clear instructions on how to play and what to expect from the quiz.
 
-To run a backend Python file, type `python3 app.py` if your Python file is named `app.py`, of course.
+  ![Title and Introduction](assets/images/title-introduction.png)
 
-A blue button should appear to click: _Make Public_,
+- **Start Screen**
 
-Another blue button should appear to click: _Open Browser_.
+  - The start screen offers an explanation of the game's rules and objectives.
+  - Players can read about the scoring system and start the quiz by clicking the "Start Quiz" button.
 
-By Default, Gitpod gives you superuser security privileges. Therefore, you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+  ![Start Screen](assets/images/start-screen.png)
 
-To log into the Heroku toolbelt CLI:
+- **Question Display**
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+  - Each question about capital cities is displayed one at a time.
+  - Players can choose the correct answer from four options.
+  - Questions are randomly selected to ensure a unique experience each time the quiz is played.
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you, so do not share it. If you accidentally make it public, you can create a new one with _Regenerate API Key_.
+  ![Question Display](assets/images/question-display.png)
 
-### Connecting your Mongo database
+- **Score Display**
 
-- **Connect to Mongo CLI on a IDE**
-- navigate to your MongoDB Clusters Sandbox
-- click **"Connect"** button
-- select **"Connect with the MongoDB shell"**
-- select **"I have the mongo shell installed"**
-- choose **mongosh (2.0 or later)** for : **"Select your mongo shell version"**
-- choose option: **"Run your connection string in your command line"**
-- in the terminal, paste the copied code `mongo "mongodb+srv://<CLUSTER-NAME>.mongodb.net/<DBname>" --apiVersion 1 --username <USERNAME>`
-  - replace all `<angle-bracket>` keys with your own data
-- enter password _(will not echo **\*\*\*\*** on screen)_
+  - The score is updated and shown after each question is answered.
+  - Players can track their progress throughout the quiz.
+  - The final score is displayed at the end of the quiz.
 
-------
+  ![Score Display](assets/images/score-display.png)
 
-## Release History
+- **Interactive Options**
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+  - Answer options are presented as clickable buttons.
+  - Correct and incorrect answers are highlighted in different colors for clarity.
+  - Players can see immediate feedback after each question is answered.
 
-**June 18, 2024,** Add Mongo back into template
+  ![Interactive Options](assets/images/interactive-options.png)
 
-**June 14, 2024,** Temporarily remove Mongo until the key issue is resolved
+- **Restart Option**
 
-**May 28 2024:** Fix Mongo and Links installs
+  - After completing the quiz, players can restart the quiz to play again.
+  - The quiz resets with a new set of random questions for replayability.
 
-**April 26 2024:** Update node version to 16
+  ![Restart Option](assets/images/restart-option.png)
 
-**September 20 2023:** Update Python version to 3.9.17.
+### Features Left to Implement
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+- A feature to allow players to select the number of questions they want to answer.
+- Adding a timer to increase the challenge and encourage quick thinking.
+- Including hints for more challenging questions.
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+## Testing
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+- Tested across different browsers including Chrome, Firefox, and Edge to ensure compatibility.
+- Responsive design was confirmed by testing on various screen sizes to ensure all elements are accessible and functional.
+- All interactive elements were tested for functionality and responsiveness.
+- Feedback from users helped identify and fix any remaining issues.
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+### Validator Testing
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+- **HTML**
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+  - Passed through the official W3C validator with no errors.
+  - Minor warnings regarding best practices were addressed where applicable.
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+- **CSS**
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+  - Passed through the official W3C (Jigsaw) validator with no errors or warnings.
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+- **Accessibility and Performance**
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+  - Using Lighthouse in DevTools, the site was confirmed to be performant and accessible.
+  - The chosen colors and fonts provide good readability and contrast.
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+  ![Performance Score](assets/images/lighthouse.png)
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+### Bugs
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+- **Solved Bugs**
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+  - A bug was encountered where the score was not updating correctly; this was resolved by correcting the logic in the JavaScript code.
+  - Alignment issues with the options were fixed by adjusting the CSS styling.
 
-------
+- **Unsolved Bugs**
 
-## FAQ about the uptime script
+  - None.
 
-**Why have you added this script?**
+## Deployment
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+- The site was deployed to GitHub Pages. The steps to deploy are as follows:
+  - In the GitHub repository, navigate to the Settings tab.
+  - From the "Pages" section, select the branch to deploy (usually `main` or `master`).
+  - After selecting the branch, the site is automatically published.
 
-**How will this affect me?**
+The live link can be found here - [Capital Cities Quiz](https://your-username.github.io/capital-cities-quiz/)
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+## Credits
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+### Content
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
+- The game logic and content were developed using resources from educational websites about geography.
+- Fonts used were sourced from Google Fonts.
 
-**So….?**
+### Media
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
-
-**Can I opt out?**
-
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
-
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
-
-**Anything more?**
-
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
-
----
-
-Happy coding!
+- Images and icons used in the game were obtained from free resources such as [PublicDomainPictures.net](https://www.publicdomainpictures.net/) and [Vecteezy.com](https://www.vecteezy.com/).
