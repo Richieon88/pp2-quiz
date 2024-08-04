@@ -226,9 +226,6 @@ function showQuestion() {
         button.addEventListener("click", selectOption);
         optionsContainer.appendChild(button);
     });
-
-    // Update the score display
-    scoreValueElement.textContent = score;
 }
 
 function shuffleArray(array) {
@@ -263,6 +260,9 @@ function selectOption(event) {
         selectedOption.style.backgroundColor = 'red'; // Highlight incorrect selection
     }
 
+    // Update the score display
+    scoreValueElement.textContent = score;
+
     // Move to next question after a short delay
     setTimeout(() => {
         currentQuestionIndex++;
@@ -278,8 +278,6 @@ function endQuiz() {
     console.log("Quiz completed");
     questionElement.textContent = "Quiz Completed!";
     optionsContainer.innerHTML = "";
-    scoreElement.style.display = "block";
-    scoreValueElement.textContent = score;
 
     const restartButton = document.createElement("button");
     restartButton.textContent = "Restart Quiz";
@@ -293,7 +291,8 @@ function restartQuiz() {
     currentQuestions = getRandomQuestions(20); // Get a new set of random questions
     currentQuestionIndex = 0;
     score = 0;
-    scoreElement.style.display = "none";
+    scoreElement.style.display = "block"; // Ensure score is visible
+    scoreValueElement.textContent = score; // Reset score display
     showQuestion();
 }
 
@@ -301,6 +300,8 @@ function startQuiz() {
     console.log("Starting quiz");
     startScreen.style.display = "none";
     quizContainer.style.display = "block";
+    scoreElement.style.display = "block"; // Show score at the start
+    scoreValueElement.textContent = score; // Initialize score display
     showQuestion();
 }
 
