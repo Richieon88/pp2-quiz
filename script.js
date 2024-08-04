@@ -207,11 +207,11 @@ const startButton = document.getElementById("start-button");
 const quizContainer = document.getElementById("quiz-container");
 const questionElement = document.getElementById("question");
 const optionsContainer = document.getElementById("options-container");
-const nextButton = document.getElementById("next-button");
 const scoreElement = document.getElementById("score");
 const scoreValueElement = document.getElementById("score-value");
 
 function showQuestion() {
+    console.log("Showing question:", currentQuestionIndex);
     const currentQuestion = currentQuestions[currentQuestionIndex];
     questionElement.textContent = currentQuestion.question;
     optionsContainer.innerHTML = "";
@@ -227,11 +227,10 @@ function showQuestion() {
         optionsContainer.appendChild(button);
     });
 
-    // Hide the Next button initially
-    nextButton.classList.add("hidden");
+    // Update the score display
+    scoreValueElement.textContent = score;
 }
 
-// Fisher-Yates shuffle algorithm
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -241,35 +240,45 @@ function shuffleArray(array) {
 }
 
 function getRandomQuestions(num) {
+    console.log("Getting random questions");
     const shuffled = questions.sort(() => 0.5 - Math.random());
     return shuffled.slice(0, num);
 }
 
 function selectOption(event) {
-    const selectedOption = event.target.textContent;
+    const selectedOption = event.target;
     const correctAnswer = currentQuestions[currentQuestionIndex].answer;
 
-    if (selectedOption === correctAnswer) {
+    // Disable all buttons to prevent multiple selections
+    document.querySelectorAll('.option').forEach(button => {
+        button.disabled = true;
+        if (button.textContent === correctAnswer) {
+            button.style.backgroundColor = 'green'; // Highlight correct answer
+        }
+    });
+
+    if (selectedOption.textContent === correctAnswer) {
         score++;
-        alert("Correct!");
     } else {
-        alert(`Wrong! The correct answer is ${correctAnswer}.`);
+        selectedOption.style.backgroundColor = 'red'; // Highlight incorrect selection
     }
 
-    currentQuestionIndex++;
-
-    if (currentQuestionIndex < currentQuestions.length) {
-        showQuestion();
-    } else {
-        endQuiz();
-    }
+    // Move to next question after a short delay
+    setTimeout(() => {
+        currentQuestionIndex++;
+        if (currentQuestionIndex < currentQuestions.length) {
+            showQuestion();
+        } else {
+            endQuiz();
+        }
+    }, 1000);
 }
 
 function endQuiz() {
+    console.log("Quiz completed");
     questionElement.textContent = "Quiz Completed!";
     optionsContainer.innerHTML = "";
-    nextButton.classList.add("hidden");
-    scoreElement.classList.remove("hidden");
+    scoreElement.style.display = "block";
     scoreValueElement.textContent = score;
 
     const restartButton = document.createElement("button");
@@ -280,16 +289,18 @@ function endQuiz() {
 }
 
 function restartQuiz() {
+    console.log("Restarting quiz");
     currentQuestions = getRandomQuestions(20); // Get a new set of random questions
     currentQuestionIndex = 0;
     score = 0;
-    scoreElement.classList.add("hidden");
+    scoreElement.style.display = "none";
     showQuestion();
 }
 
 function startQuiz() {
-    startScreen.classList.add("hidden");
-    quizContainer.classList.remove("hidden");
+    console.log("Starting quiz");
+    startScreen.style.display = "none";
+    quizContainer.style.display = "block";
     showQuestion();
 }
 
