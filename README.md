@@ -1,6 +1,6 @@
 # Capital Cities Quiz
 
-[Capital Cities Quiz](https://your-username.github.io/capital-cities-quiz/) is an interactive quiz game where users test their knowledge of world capitals. Players answer questions about the capital cities of different countries, and their scores are tracked throughout the game. This educational game is suitable for anyone interested in geography and aims to provide a fun way to learn.
+[Capital Cities Quiz](https://richieon88.github.io/pp2-quiz/) is an interactive quiz game where users test their knowledge of world capitals. Players answer questions about the capital cities of different countries, and their scores are tracked throughout the game. This educational game is suitable for anyone interested in geography and aims to provide a fun way to learn.
 
 ![Responsive Mockup](assets/images/responsive.png)
 
@@ -109,7 +109,7 @@
   - From the "Pages" section, select the branch to deploy (usually `main` or `master`).
   - After selecting the branch, the site is automatically published.
 
-The live link can be found here - [Capital Cities Quiz](https://your-username.github.io/capital-cities-quiz/)
+The live link can be found here - [Capital Cities Quiz](https://richieon88.github.io/pp2-quiz/)
 
 ## Credits
 
@@ -117,7 +117,3 @@ The live link can be found here - [Capital Cities Quiz](https://your-username.gi
 
 - The game logic and content were developed using resources from educational websites about geography.
 - Fonts used were sourced from Google Fonts.
-
-### Media
-
-- Images and icons used in the game were obtained from free resources such as [PublicDomainPictures.net](https://www.publicdomainpictures.net/) and [Vecteezy.com](https://www.vecteezy.com/).
