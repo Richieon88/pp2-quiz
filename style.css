@@ -38,15 +38,20 @@ button:hover {
 
 #options-container {
     margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .option {
+    flex: 1 1 45%;
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
-    margin: 5px 0;
+    margin: 5px;
     cursor: pointer;
     background-color: #f9f9f9;
+    text-align: center;
 }
 
 .option:hover {
@@ -54,5 +59,12 @@ button:hover {
 }
 
 #start-screen {
+    text-align: center;
+}
+
+#restart-button {
+    width: 100%;
+    margin-top: 20px;
+    margin: 0 auto;
     text-align: center;
 }

@@ -72,9 +72,9 @@ function endQuiz() {
     scoreElement.classList.remove("hidden");
     scoreValueElement.textContent = score;
 
-    // Show the Restart button
     const restartButton = document.createElement("button");
     restartButton.textContent = "Restart Quiz";
+    restartButton.id = "restart-button";
     restartButton.addEventListener("click", restartQuiz);
     optionsContainer.appendChild(restartButton);
 }
